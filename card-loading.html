@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @keyframes zoom-in-zoom-out {
+            0% {
+                transform: translateZ(0) scale(1);
+            }
+
+            50% {
+                transform: translateZ(0) scale(1.01);
+            }
+
+            100% {
+                transform: translateZ(0) scale(1);
+            }
+        }
+
+        .card {
+            border: none;
+        }
+
+
+        .card img {
+            object-fit: cover;
+            width: 100%;
+            height: 180px;
+        }
+
+        .card img:hover {
+            /* backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased; */
+            animation: zoom-in-zoom-out 1s 1;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, .15);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-4">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="card animate__animated" style="width: 18rem;">
+                    <img src="https://plus.unsplash.com/premium_photo-1723122130796-c789b419cb34?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the
+                            card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="card animate__animated" style="width: 18rem;">
+                    <img src="https://plus.unsplash.com/premium_photo-1723122130796-c789b419cb34?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the
+                            card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="card animate__animated" style="width: 18rem;">
+                    <img src="https://plus.unsplash.com/premium_photo-1723122130796-c789b419cb34?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of
+                            the
+                            card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const spinners = document.querySelectorAll('.spinner-border')
+        cards.forEach(card => {
+            card.classList.add('d-none');
+            card.addEventListener('mouseover', function () {
+                card.classList.remove('animate__fadeIn').add('animate__pulse');
+            });
+
+            card.addEventListener('mouseout', function () {
+                //card.removeAttribute('class')
+                card.classList.remove('animate__pulse');
+            });
+        });
+
+        setTimeout(() => {
+            spinners.forEach((spinner) => {
+                spinner.classList.add('d-none');
+            });
+            cards.forEach(card => {
+                card.classList.remove('d-none');
+                card.classList.toggle('animate__fadeIn');
+            });
+        }, 3000);
+    </script>
+</body>
+
+</html>
